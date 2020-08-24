@@ -133,9 +133,9 @@
 \definecolor{blue}{HTML}{6CE0F1}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
-\colorlet{text}{darkgray}
-\colorlet{graytext}{gray}
-\colorlet{lighttext}{lightgray}
+\colorlet{text}{black}
+\colorlet{graytext}{darkgray}
+\colorlet{lighttext}{gray}
 % Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
@@ -145,6 +145,7 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
+\definecolor{awesome-pku}{HTML}{8C0000}
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
@@ -605,7 +606,7 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
@@ -641,18 +642,18 @@
   \vspace{\acvSectionContentTopSkip}
   \vspace{-5mm}
   \setlength{\extrarowheight}{0pt}
-  \begin{table}[!h]
-  \begin{tabular}{lcc}
-      \coursetitlestyle{Course Name} & \coursetitlestyle{Credit} & \coursetitlestyle{Score} \\*
+  \begin{center}
+  \begin{tabular}{lcc|lcc}
+      \coursetitlestyle{Course Name} & \coursetitlestyle{Credit} & \coursetitlestyle{Score} & \coursetitlestyle{Course Name} & \coursetitlestyle{Credit} & \coursetitlestyle{Score} \\*
       \hline
 }{%
   \end{tabular}
-  \end{table}
+  \end{center}
 }
-% Define a line of cv information(course)
-% Usage: \cvcourse{<name>}{<credit>}{<score>}
-\newcommand*{\cvcourse}[3]{%
-        \coursestyle{#1} & \coursestyle{#2} & \coursestyle{#3} \\
+% Define a line of cv information(course) (two courses)
+% Usage: \cvcourse{<name>}{<credit>}{<score>}{<name>}{<credit>}{<score>}
+\newcommand*{\cvcourse}[6]{%
+    \coursestyle{#1} & \coursestyle{#2} & \coursestyle{#3} & \coursestyle{#4} & \coursestyle{#5} & \coursestyle{#6} \\
 }
 
 % Define an environment for cvhonor
@@ -668,9 +669,14 @@
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+% Usage: \cvhonor[description]{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvhonor}[5][]{%
+    \honordatestyle{#5} & \honorpositionstyle{#2}\ifempty{#3}{}{, \honortitlestyle{#3}} & \honorlocationstyle{#4} \\
+  \if\relax\detokenize{#1}\relax
+  %
+  \else
+  & \descriptionstyle{#1} & \\%
+  \fi
 }
 
 % Define an environment for cvskill
