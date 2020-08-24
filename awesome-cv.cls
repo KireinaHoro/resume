@@ -219,6 +219,10 @@
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
+% For elements of course
+\newcommand*{\coursetitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\coursestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{graytext} #1}}
+
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
@@ -630,6 +634,25 @@
       {}
       {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
   \end{tabular*}
+}
+
+% Define an environment for cvcourse
+\newenvironment{cvcourses}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-5mm}
+  \setlength{\extrarowheight}{0pt}
+  \begin{table}[!h]
+  \begin{tabular}{lcc}
+      \coursetitlestyle{Course Name} & \coursetitlestyle{Credit} & \coursetitlestyle{Score} \\*
+      \hline
+}{%
+  \end{tabular}
+  \end{table}
+}
+% Define a line of cv information(course)
+% Usage: \cvcourse{<name>}{<credit>}{<score>}
+\newcommand*{\cvcourse}[3]{%
+        \coursestyle{#1} & \coursestyle{#2} & \coursestyle{#3} \\
 }
 
 % Define an environment for cvhonor
