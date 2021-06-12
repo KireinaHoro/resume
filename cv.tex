@@ -18,7 +18,7 @@
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[a4paper]{awesome-cv}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -46,6 +46,20 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+% font size for different elements
+% Uncomment if you would like to change the font size
+% \sizesection{16pt}
+\sizesubsection{13pt}
+\sizeentrytitle{12pt}
+\sizeentryposition{10pt}
+\sizeentrydate{10pt}
+\sizeentrylocation{11pt}
+\sizedescription{11pt}
+
+% line stretch
+% Uncomment if you would like to change the line stretch
+\stretchdescription{1.6}
+\stretchskills{1.4}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -72,7 +86,7 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra informations}
 
-\quote{Aut inveniam viam aut faciam. \\ ``I'll either find a way or make one.''---Hannibal}
+%\quote{Aut inveniam viam aut faciam. \\ ``I'll either find a way or make one.''---Hannibal}
 
 
 %-------------------------------------------------------------------------------
@@ -90,6 +104,17 @@
   {\thepage}
 
 
+\cvsection{Personal Details}
+
+\begin{cvskills}
+    \cvskill{Name}{Pengcheng Xu}
+    \cvskill{Date of birth}{10/05/1999}
+    \cvskill{Place of birth}{Beijing, China}
+    \cvskill{Nationality}{Chinese}
+    \cvskill{Marital status}{Single}
+\end{cvskills}
+
+
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
@@ -97,9 +122,9 @@
 \input{cv/education.tex}
 %\input{cv/courses.tex}
 \input{cv/experience.tex}
-\input{cv/publication.tex}
-\input{cv/honors.tex}
-\input{cv/projects.tex}
+%\input{cv/publication.tex}
+%\input{cv/honors.tex}
+%\input{cv/projects.tex}
 \input{cv/skills.tex}
 
 
