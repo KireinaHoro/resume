@@ -28,7 +28,6 @@
       '';
     };
   in {
-    packages = { inherit resume; };
-    defaultPackage = resume;
+    packages.default = resume;
   });
 }
