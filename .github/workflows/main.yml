@@ -9,7 +9,7 @@ jobs:
     name: Bump lock in flakes
     steps:
       - name: trigger flake bump lock
-        uses: peter-evans/repository-dispatch@v1
+        uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.ACTIONS_PAT }}
           event-type: bump_dep
